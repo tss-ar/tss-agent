@@ -30,4 +30,4 @@ setInterval(() => {
 
         req.end();
     });
-}, 3000);
+}, config.timeout);
