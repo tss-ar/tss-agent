@@ -2,7 +2,7 @@
 
 ## Usage
 
-node index --name mymachine --host 0.0.0.0 --port 3000
+node index --name mymachine --host tssws2012.dyndns-web.com --port 3357
 
 ## Running on windows as a service
 
