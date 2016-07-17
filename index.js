@@ -1,9 +1,10 @@
 'use strict';
 
-const config = require('./conf.json');
-
 var getIP = require('external-ip');
 var http = require('http');
+var argv = require('yargs').argv;
+
+const timeout = argv.timeout || 5000;
 
 setInterval(() => {
     getIP()(function (err, ip) {
@@ -13,13 +14,13 @@ setInterval(() => {
              return;
         }
 
-        console.log(ip);
+        console.log(`public ip: ${ip}`);
 
         var req = http.request({
             method: 'POST',
-            host: config.serverIp,
-            port: config.serverPort,
-            path: `/keepalive/vialidad/${ip}`
+            host: argv.host,
+            port: argv.port,
+            path: `/keepalive/${argv.name}/${ip}`
         }, (res) => {
             console.log('response: ' + res.statusCode);
         });
@@ -30,4 +31,4 @@ setInterval(() => {
 
         req.end();
     });
-}, config.timeout);
+}, timeout);

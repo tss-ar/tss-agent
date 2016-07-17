@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "external-ip": "^0.2.4"
+    "external-ip": "^0.2.4",
+    "yargs": "^4.8.0"
   }
 }
